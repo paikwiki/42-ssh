@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# DON'T FORGET!! Run setup.sh with "source"
+
 git config --global user.name cbaek
 git config --global user.email cbaek@student.42seoul.kr
 
