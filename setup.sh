@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    setup.sh                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cbaek <cbaek@student.42seoul.kr>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/03/25 15:54:09 by cbaek             #+#    #+#              #
+#    Updated: 2021/03/25 15:54:31 by cbaek            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #!/bin/sh
 
 # DON'T FORGET!! Run setup.sh with "source"
@@ -22,3 +34,4 @@ ssh-keygen -t rsa -b 4096 -C "cbaek@student.42seoul.kr"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
+
