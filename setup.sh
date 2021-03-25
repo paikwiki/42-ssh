@@ -6,7 +6,7 @@
 #    By: cbaek <cbaek@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/25 15:54:09 by cbaek             #+#    #+#              #
-#    Updated: 2021/03/25 15:54:31 by cbaek            ###   ########.fr        #
+#    Updated: 2021/03/25 16:46:15 by cbaek            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ alias ll="ls -al"
 alias gs="git status"
 alias ga="git add"
 alias gcm="git commit -m"
+alias gd="git diff"
 alias gl="git log --oneline"
 
 alias norm="/usr/bin/norminette"
