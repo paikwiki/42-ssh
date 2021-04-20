@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -6,34 +8,47 @@
 #    By: cbaek <cbaek@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/25 15:54:09 by cbaek             #+#    #+#              #
-#    Updated: 2021/03/30 16:30:54 by cbaek            ###   ########.fr        #
+#    Updated: 2021/04/21 08:25:07 by cbaek            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#!/bin/sh
+# -- variables --------------------------------------------------------------- #
+id42="cbaek"
+email42="cbaek@student.42seoul.kr"
 
-# DON'T FORGET!! Run setup.sh with "source"
+# -- git user ---------------------------------------------------------------- #
+read -p "Set git user name & email --global?(y/N)" yn
+case $yn in
+	[Yy]* ) git config --global user.name $id42
+			git config --global user.email $email42
+			break;;
+	[Nn]* ) break;;
+	* ) echo "Unexpected input. skip."; break;;
+esac
 
-git config --global user.name cbaek
-git config --global user.email cbaek@student.42seoul.kr
+# -- aliases ----------------------------------------------------------------- #
+read -p "Apply alias set(./sh_aliases)?(y/N)" yn
+case $yn in
+	[Yy]* ) source ./sh_aliases.sh; break;;
+	[Nn]* ) break;;
+	* ) echo "Unexpected input. skip."; break;;
+esac
 
-alias ll="ls -al"
+# -- ssh keygen -------------------------------------------------------------- #
+read -p "Create ssh key-pair?(y/N)" yn
+case $yn in
+	[Yy]* ) ssh-keygen -t rsa -b 4096 -C "cbaek@student.42seoul.kr"; \
+			eval "$(ssh-agent -s)"; \
+			ssh-add ~/.ssh/id_rsa; \
+			break;;
+	[Nn]* ) break;;
+	* ) echo "Unexpected input. skip."; break;;
+esac
 
-alias gs="git status"
-alias ga="git add"
-alias gcm="git commit -m"
-alias gd="git diff"
-alias gl="git log --oneline"
-alias clangw="clang++ -Wall -Wextra -Werror -std=c++98"
-
-alias norm="/usr/bin/norminette"
-
-cd ~
-mkdir codes
-cd codes
-
-ssh-keygen -t rsa -b 4096 -C "cbaek@student.42seoul.kr"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub
-
+# -- put pub key ------------------------------------------------------------- #
+read -p "Put pub ssh-key?(y/N)" yn
+case $yn in
+	[Yy]* ) cat ~/.ssh/id_rsa.pub; break;;
+	[Nn]* ) break;;
+	* ) echo "Unexpected input. skip."; break;;
+esac
