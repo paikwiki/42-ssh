@@ -13,8 +13,7 @@
 # **************************************************************************** #
 
 # -- variables --------------------------------------------------------------- #
-id42="cbaek"
-email42="cbaek@student.42seoul.kr"
+source ./source/config.sh
 
 # -- git user ---------------------------------------------------------------- #
 read -p "Set git user name & email --global?(y/N)" yn
@@ -29,7 +28,7 @@ esac
 # -- aliases ----------------------------------------------------------------- #
 read -p "Apply alias set(./sh_aliases)?(y/N)" yn
 case $yn in
-	[Yy]* ) source ./sh_aliases.sh; break;;
+	[Yy]* ) source ./source/sh_aliases.sh; break;;
 	[Nn]* ) break;;
 	* ) echo "Unexpected input. skip."; break;;
 esac
@@ -37,7 +36,7 @@ esac
 # -- ssh keygen -------------------------------------------------------------- #
 read -p "Create ssh key-pair?(y/N)" yn
 case $yn in
-	[Yy]* ) ssh-keygen -t rsa -b 4096 -C "cbaek@student.42seoul.kr"; \
+	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $email42; \
 			eval "$(ssh-agent -s)"; \
 			ssh-add ~/.ssh/id_rsa; \
 			break;;
