@@ -39,10 +39,10 @@ esac
 printf "\e[32m[03/04] Create ssh key-pair?(y/N) \e[0m";
 read yn
 case $yn in
-	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $email42; \
-			eval "$(ssh-agent -s)"; \
-			ssh-add ~/.ssh/id_rsa; \
-			break;;
+	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $email42;
+			eval "$(ssh-agent -s)";
+			ssh-add ~/.ssh/id_rsa;
+			break;; # TODO: Ask put pub key when key exists already.
 	[Nn]* ) break;;
 	* ) echo "Unexpected input. skip."; break;;
 esac
