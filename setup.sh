@@ -43,7 +43,7 @@ case $yn in
 esac
 
 # -- ssh keygen -------------------------------------------------------------- #
-printf "\e[33m- key name: $ssh_keyname \e[0m\n"
+printf "\e[33mkey name: $ssh_keyname \e[0m\n"
 printf "\e[32m[03/04] Create ssh key-pair?(y/N) \e[0m"
 read yn
 case $yn in
