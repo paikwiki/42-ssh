@@ -1,4 +1,4 @@
 #!/bin/sh
-export USER_42="cbaek"
-export MAIL_42="cbaek@student.42seoul.kr"
-export SSH_KEYNAME="id2_rsa"
+USER_42="cbaek"
+MAIL_42="cbaek@student.42seoul.kr"
+SSH_KEYNAME="id2_rsa"
