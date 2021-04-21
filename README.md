@@ -17,5 +17,4 @@
 - `./source/config.sh`: Variables for setup.sh.
   - `user.name` & `user.email` for git.
 
-
 `source sh_aliases.sh`: Apply shell aliases.
