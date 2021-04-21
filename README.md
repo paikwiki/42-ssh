@@ -14,6 +14,8 @@
 # **************************************************************************** #
 ```
 
-- `./source/config.sh`: variables for setup.sh.
+- `./source/config.sh`: Variables for setup.sh.
   - `user.name` & `user.email` for git.
-- `./source/sh_aliases.sh`: shell aliases.
+
+
+`source sh_aliases.sh`: Apply shell aliases.
