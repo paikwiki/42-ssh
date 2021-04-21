@@ -13,10 +13,17 @@
 # **************************************************************************** #
 
 # -- variables --------------------------------------------------------------- #
+printf "=======================================\n";
+printf "=                                     =\n";
+printf "=  Setup-42SSH                        =\n";
+printf "=                                     =\n";
+printf "=======================================\n";
+printf "\n";
 source ./source/config.sh
-
 # -- git user ---------------------------------------------------------------- #
-printf "\e[32m[01/04] Set git user name & email --global?(y/N) \e[0m";
+printf "\e[33mname: $id42 \e[0m\n"
+printf "\e[33memail: $email42 \e[0m\n"
+printf "\e[32m[01/04] Set git user name & email --global?(y/N) \e[0m"
 read yn
 case $yn in
 	[Yy]* ) git config --global user.name $id42
@@ -27,7 +34,7 @@ case $yn in
 esac
 
 # -- aliases ----------------------------------------------------------------- #
-printf "\e[32m[02/04] Apply alias set(./sh_aliases)?(y/N) \e[0m";
+printf "\e[32m[02/04] Apply alias(./sh_aliases)?(y/N) \e[0m"
 read yn
 case $yn in
 	[Yy]* ) source ./source/sh_aliases.sh; break;;
@@ -36,13 +43,14 @@ case $yn in
 esac
 
 # -- ssh keygen -------------------------------------------------------------- #
-printf "\e[32m[03/04] Create ssh key-pair?(y/N) \e[0m";
+printf "\e[33m- key name: $ssh_keyname \e[0m\n"
+printf "\e[32m[03/04] Create ssh key-pair?(y/N) \e[0m"
 read yn
 case $yn in
 	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $email42;
 			eval "$(ssh-agent -s)";
-			ssh-add ~/.ssh/id_rsa;
-			break;; # TODO: Ask put pub key when key exists already.
+			ssh-add ~/.ssh/$ssh_keyname;
+			break;;
 	[Nn]* ) break;;
 	* ) echo "Unexpected input. skip."; break;;
 esac
@@ -51,7 +59,7 @@ esac
 printf "\e[32m[04/04] Put pub ssh-key?(y/N) \e[0m";
 read yn
 case $yn in
-	[Yy]* ) cat ~/.ssh/id_rsa.pub; break;;
+	[Yy]* ) cat ~/.ssh/$ssh_keyname.pub; break;;
 	[Nn]* ) break;;
 	* ) echo "Unexpected input. skip."; break;;
 esac
