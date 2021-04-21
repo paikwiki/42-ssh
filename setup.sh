@@ -35,13 +35,13 @@ case $yn in
 esac
 
 # -- ssh keygen -------------------------------------------------------------- #
-printf "\e[33mkey name: $SSH_KEYNAME \e[0m\n"
-printf "\e[32m[02/03] Create ssh key-pair?(y/N) \e[0m"
+printf "\e[32m[02/03] Create ssh key-pair?"
+printf "(y/N, create default name(id_rsa) only) \e[0m"
 read yn
 case $yn in
-	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $SSH_KEYNAME;
+	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $MAIL_42;
 			eval "$(ssh-agent -s)";
-			ssh-add ~/.ssh/$SSH_KEYNAME;
+			ssh-add ~/.ssh/id_rsa;
 			break;;
 	[Nn]* ) break;;
 	* ) echo "Unexpected input. skip."; break;;
@@ -51,7 +51,7 @@ esac
 printf "\e[32m[03/03] Put pub ssh-key?(y/N) \e[0m";
 read yn
 case $yn in
-	[Yy]* ) cat ~/.ssh/$SSH_KEYNAME.pub; break;;
+	[Yy]* ) cat ~/.ssh/id_rsa.pub; break;;
 	[Nn]* ) break;;
 	* ) echo "Unexpected input. skip."; break;;
 esac
