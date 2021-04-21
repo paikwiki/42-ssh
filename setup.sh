@@ -19,10 +19,10 @@ printf "=  Setup-42SSH                        =\n";
 printf "=                                     =\n";
 printf "=======================================\n";
 printf "\n";
-source ./source/config.sh
+sh ./source/rc42.sh
 # -- git user ---------------------------------------------------------------- #
-printf "\e[33mname: $id42 \e[0m\n"
-printf "\e[33memail: $email42 \e[0m\n"
+printf "\e[33mname: $USER_42 \e[0m\n"
+printf "\e[33memail: $MAIL_42 \e[0m\n"
 printf "\e[32m[01/04] Set git user name & email --global?(y/N) \e[0m"
 read yn
 case $yn in
@@ -37,7 +37,7 @@ esac
 printf "\e[32m[02/04] Apply alias(./sh_aliases)?(y/N) \e[0m"
 read yn
 case $yn in
-	[Yy]* ) source ./source/sh_aliases.sh; break;;
+	[Yy]* ) source ./source/.alias42; break;;
 	[Nn]* ) break;;
 	* ) echo "Unexpected input. skip."; break;;
 esac
