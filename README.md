@@ -14,7 +14,7 @@
 # **************************************************************************** #
 ```
 
-![demo](./demo-setup-42ssh.gif)
+![demo](./demo-setup-42ssh.gif | width=640)
 
 - `./source/config.sh`: Variables for setup.sh.
   - `user.name` & `user.email` for git.
