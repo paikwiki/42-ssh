@@ -16,7 +16,8 @@
 source ./source/config.sh
 
 # -- git user ---------------------------------------------------------------- #
-read -p "Set git user name & email --global?(y/N)" yn
+printf "\e[32m[01/04] Set git user name & email --global?(y/N) \e[0m";
+read yn
 case $yn in
 	[Yy]* ) git config --global user.name $id42
 			git config --global user.email $email42
@@ -26,7 +27,8 @@ case $yn in
 esac
 
 # -- aliases ----------------------------------------------------------------- #
-read -p "Apply alias set(./sh_aliases)?(y/N)" yn
+printf "\e[32m[02/04] Apply alias set(./sh_aliases)?(y/N) \e[0m";
+read yn
 case $yn in
 	[Yy]* ) source ./source/sh_aliases.sh; break;;
 	[Nn]* ) break;;
@@ -34,7 +36,8 @@ case $yn in
 esac
 
 # -- ssh keygen -------------------------------------------------------------- #
-read -p "Create ssh key-pair?(y/N)" yn
+printf "\e[32m[03/04] Create ssh key-pair?(y/N) \e[0m";
+read yn
 case $yn in
 	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $email42; \
 			eval "$(ssh-agent -s)"; \
@@ -45,7 +48,8 @@ case $yn in
 esac
 
 # -- put pub key ------------------------------------------------------------- #
-read -p "Put pub ssh-key?(y/N)" yn
+printf "\e[32m[04/04] Put pub ssh-key?(y/N) \e[0m";
+read yn
 case $yn in
 	[Yy]* ) cat ~/.ssh/id_rsa.pub; break;;
 	[Nn]* ) break;;
