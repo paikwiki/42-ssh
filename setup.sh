@@ -47,7 +47,7 @@ printf "\e[33mkey name: $ssh_keyname \e[0m\n"
 printf "\e[32m[03/04] Create ssh key-pair?(y/N) \e[0m"
 read yn
 case $yn in
-	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $email42;
+	[Yy]* ) ssh-keygen -t rsa -b 4096 -C $ssh_keyname;
 			eval "$(ssh-agent -s)";
 			ssh-add ~/.ssh/$ssh_keyname;
 			break;;
