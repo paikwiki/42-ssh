@@ -15,6 +15,3 @@ alias clangw="clang++ -Wall -Wextra -Werror -std=c++98"
 
 # norm
 alias norm="/usr/bin/norminette"
-
-# testy
-alias testy="echo test"
