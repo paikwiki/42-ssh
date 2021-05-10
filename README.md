@@ -20,3 +20,7 @@
   - `user.name` & `user.email` for git.
 
 `source sh_aliases.sh`: Apply shell aliases.
+
+## others
+
+- VS Code: `brew install visual-studio-code --appdir=~/Applications`
